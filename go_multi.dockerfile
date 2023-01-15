@@ -6,10 +6,11 @@ COPY web.go .
 RUN go build -a ./web.go
 
 ## Define container process
-CMD ["./web"]
+# CMD ["./web"]
 
 FROM scratch
 
 COPY --from=build go/web ./web
+EXPOSE 8080
 ## Define container process
 CMD ["./web"]
